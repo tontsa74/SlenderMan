@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Confined;
         rigid = GetComponent<Rigidbody>();
+      //  rigid.detectCollisions = false;
     }
 
     // Update is called once per frame
@@ -47,4 +48,5 @@ public class PlayerScript : MonoBehaviour
 
         rigid.MoveRotation(Quaternion.Euler(xRotation, yRotation, 0));
     }
+
 }
