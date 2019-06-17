@@ -6,6 +6,9 @@ public class PlayerScript : MonoBehaviour
 {
     public float speed = 5f;
     public float rotationSpeed = 90;
+    float xRotation;
+    float yRotation;
+    Rigidbody rigid;
 
     Vector3 inputVector;
 
@@ -13,6 +16,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
+        rigid = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -32,13 +36,15 @@ public class PlayerScript : MonoBehaviour
 
     void Move()
     {
-        // transform.position += inputVector * Time.deltaTime * speed;
-
-        transform.Translate(inputVector * Time.deltaTime * speed);
+        rigid.MovePosition(transform.position + (transform.forward * Input.GetAxis("Vertical")*Time.deltaTime*speed) + (
+            transform.right*Input.GetAxis("Horizontal") * Time.deltaTime*speed));
     }
 
     void Rotate()
     {
-        transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime);
+        xRotation -= Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime;
+        yRotation += Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
+
+        rigid.MoveRotation(Quaternion.Euler(xRotation, yRotation, 0));
     }
 }
