@@ -17,7 +17,7 @@ public class ThrowStickScript : MonoBehaviour
     GameObject audioPrefab;
 
     [SerializeField]
-    AudioClip fireSound;
+    AudioClip tossSound;
 
     // Start is called before the first frame update
     void Start()
@@ -54,10 +54,10 @@ public class ThrowStickScript : MonoBehaviour
         GlowStickScript gs = nGlowstick.GetComponent<GlowStickScript>();
         gs.SetDirection(transform.forward, forceTimer);
 
-        /*
+       
         GameObject soundPlayer = Instantiate(audioPrefab, firingPoint.position, Quaternion.identity);
         SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
-        sp.PlaySound(fireSound);
-        */
+        sp.PlaySound(tossSound, false);
+        
     }
 }
