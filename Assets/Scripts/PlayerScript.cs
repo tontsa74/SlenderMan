@@ -39,6 +39,7 @@ public class PlayerScript : MonoBehaviour
     {
         rigid.MovePosition(transform.position + (transform.forward * Input.GetAxis("Vertical")*Time.deltaTime*speed) + (
             transform.right*Input.GetAxis("Horizontal") * Time.deltaTime*speed));
+       // rigid.AddForce(inputVector, ForceMode.Impulse);
     }
 
     void Rotate()
