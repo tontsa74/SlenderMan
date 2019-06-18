@@ -31,11 +31,12 @@ public class SoundPlayerScript : MonoBehaviour
         }
     }
 
-    public void PlaySound(AudioClip ac, bool looping)
+    public void PlaySound(AudioClip ac, bool looping, float volume)
     {
         aSource = GetComponent<AudioSource>();
         aSource.clip = ac;
         aSource.loop = looping;
+        aSource.volume = volume;
         aSource.Play();
         playing = true;
     }

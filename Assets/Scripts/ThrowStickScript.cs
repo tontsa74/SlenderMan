@@ -57,7 +57,7 @@ public class ThrowStickScript : MonoBehaviour
        
         GameObject soundPlayer = Instantiate(audioPrefab, firingPoint.position, Quaternion.identity);
         SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
-        sp.PlaySound(tossSound, false);
+        sp.PlaySound(tossSound, false, 1f);
         
     }
 }

@@ -12,6 +12,13 @@ public class PlayerScript : MonoBehaviour
 
     Vector3 inputVector;
 
+    [SerializeField]
+    GameObject audioPrefab;
+
+    [SerializeField]
+    AudioClip tossSound;
+
+
     // Start is called before the first frame update
     void Start()
     {
