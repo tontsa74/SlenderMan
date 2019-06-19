@@ -44,6 +44,7 @@ public class SoundsScript : MonoBehaviour
             GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
             SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
             sp.PlaySound(triggersounds[ran], false, 0.1f);
+            Destroy(other.gameObject);
         } else if (other.tag == "Enemy")
         {
             GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
