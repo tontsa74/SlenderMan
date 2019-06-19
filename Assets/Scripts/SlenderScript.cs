@@ -5,24 +5,33 @@ using UnityEngine.AI;
 
 public class SlenderScript : MonoBehaviour
 {
-    GameObject destination;
+    // GameObject destination;
     NavMeshAgent navMeshAgent;
+
+    public Transform target;
 
     // Start is called before the first frame update
     void Start()
     {
-        destination = GameObject.Find("Player");
+        // destination = GameObject.Find("Player");
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        SetDestination();
+        
+        // Sight();
+        NavMeshHit hit;
+        if (!navMeshAgent.Raycast(target.position, out hit)) {
+            SetDestination();
+        }
     }
 
     public void SetDestination()
     {
-        navMeshAgent.SetDestination(destination.transform.position);
+        // navMeshAgent.SetDestination(destination.transform.position);
+        navMeshAgent.SetDestination(target.position);
     }
+
 }
