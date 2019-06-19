@@ -22,8 +22,8 @@ public class SlenderScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(navMeshAgent.velocity != Vector3.zero) 
-        {
+        if(navMeshAgent.velocity != Vector3.zero){
+            print("hell");
             animator.SetBool("idle", false);
         } else {
             animator.SetBool("idle", true);
