@@ -75,7 +75,7 @@ public class ThrowStickScript : MonoBehaviour
             SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
             sp.PlaySound(emptySound, false, 1f);
         }
-
+        
         
     }
 }
