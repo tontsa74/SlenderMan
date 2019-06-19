@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ThrowStickScript : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class ThrowStickScript : MonoBehaviour
 
     public float glowstickAmount = 5;
 
+    public TextMeshProUGUI uiAmount;
+
     [SerializeField]
     GameObject audioPrefab;
 
@@ -27,7 +30,7 @@ public class ThrowStickScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        uiAmount.text = ""+glowstickAmount;
     }
 
     // Update is called once per frame
@@ -61,6 +64,7 @@ public class ThrowStickScript : MonoBehaviour
             GlowStickScript gs = nGlowstick.GetComponent<GlowStickScript>();
             gs.SetDirection(transform.forward, forceTimer);
             glowstickAmount--;
+            uiAmount.text = "" + glowstickAmount;
 
             GameObject soundPlayer = Instantiate(audioPrefab, firingPoint.position, Quaternion.identity);
             SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
@@ -71,10 +75,7 @@ public class ThrowStickScript : MonoBehaviour
             SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
             sp.PlaySound(emptySound, false, 1f);
         }
-
-
-       
-
+        
         
     }
 }

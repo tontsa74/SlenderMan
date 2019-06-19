@@ -25,7 +25,7 @@ public class SoundsScript : MonoBehaviour
     {
         GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
         SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
-        sp.PlaySound(bgMusic, true, 0.1f);
+        sp.PlaySound(bgMusic, true, 0.5f);
     }
 
     // Update is called once per frame
@@ -43,14 +43,15 @@ public class SoundsScript : MonoBehaviour
             int ran = Random.Range(0, 6);
             GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
             SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
-            sp.PlaySound(triggersounds[ran], false, 0.1f);
+            sp.PlaySound(triggersounds[ran], false, 1f);
             Destroy(other.gameObject);
         } else if (other.tag == "Enemy")
         {
             GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
             SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
-            sp.PlaySound(endSound, false, 0.1f);
+            sp.PlaySound(endSound, false, 1f);
             theEndText.enabled = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }
