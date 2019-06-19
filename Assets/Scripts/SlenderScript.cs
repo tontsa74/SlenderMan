@@ -10,6 +10,8 @@ public class SlenderScript : MonoBehaviour
 
     public Transform target;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,12 @@ public class SlenderScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(navMeshAgent.velocity != Vector3.zero){
+            print("hell");
+            animator.SetBool("idle", false);
+        } else {
+            animator.SetBool("idle", true);
+        }
         // Sight();
         NavMeshHit hit;
         if (!navMeshAgent.Raycast(target.position, out hit)) {
