@@ -13,11 +13,16 @@ public class ThrowStickScript : MonoBehaviour
 
     float forceTimer = 0;
 
+    public float glowstickAmount = 5;
+
     [SerializeField]
     GameObject audioPrefab;
 
     [SerializeField]
     AudioClip tossSound;
+
+    [SerializeField]
+    AudioClip emptySound;
 
     // Start is called before the first frame update
     void Start()
@@ -50,14 +55,26 @@ public class ThrowStickScript : MonoBehaviour
 
     void Shoot()
     {
-        GameObject nGlowstick = Instantiate(glowstickPrefab, firingPoint.position, Quaternion.identity);
-        GlowStickScript gs = nGlowstick.GetComponent<GlowStickScript>();
-        gs.SetDirection(transform.forward, forceTimer);
+        if(glowstickAmount > 0)
+        {
+            GameObject nGlowstick = Instantiate(glowstickPrefab, firingPoint.position, Quaternion.identity);
+            GlowStickScript gs = nGlowstick.GetComponent<GlowStickScript>();
+            gs.SetDirection(transform.forward, forceTimer);
+            glowstickAmount--;
+
+            GameObject soundPlayer = Instantiate(audioPrefab, firingPoint.position, Quaternion.identity);
+            SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
+            sp.PlaySound(tossSound, false, 1f);
+        } else
+        {
+            GameObject soundPlayer = Instantiate(audioPrefab, firingPoint.position, Quaternion.identity);
+            SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
+            sp.PlaySound(emptySound, false, 1f);
+        }
+
 
        
-        GameObject soundPlayer = Instantiate(audioPrefab, firingPoint.position, Quaternion.identity);
-        SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
-        sp.PlaySound(tossSound, false, 1f);
+
         
     }
 }

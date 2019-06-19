@@ -167,11 +167,9 @@ MonoBehaviour:
     type: 3}
   firingPoint: {fileID: 21292130}
   maxForce: 1
-  glowstickAmount: 5
   audioPrefab: {fileID: 9087810092523484323, guid: d8eb242ef84bd024bb1caf20947c5fbf,
     type: 3}
   tossSound: {fileID: 8300000, guid: d68e752da30497c43886f446838b788c, type: 3}
-  emptySound: {fileID: 8300000, guid: 4a0487e05be772b479ec1c510b0c2168, type: 3}
 --- !u!1 &60348620
 GameObject:
   m_ObjectHideFlags: 0
