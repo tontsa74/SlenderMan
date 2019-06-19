@@ -388,6 +388,7 @@ MonoBehaviour:
     type: 3}
   bgMusic: {fileID: 8300000, guid: f714800efcd8a454fbd45ea7af7670ac, type: 3}
   endSound: {fileID: 8300000, guid: 590d92e8ff82a034a86af83eefd8bcc3, type: 3}
+  victorySound: {fileID: 8300000, guid: 2b3ab65cab9cde1468351c412741a5c9, type: 3}
   triggersounds:
   - {fileID: 8300000, guid: 487b9375361dbd94b8e1b5a58dab9ded, type: 3}
   - {fileID: 8300000, guid: 6319c2581948fad498557cddb3207406, type: 3}
