@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SoundsScript : MonoBehaviour
 {
@@ -11,7 +12,12 @@ public class SoundsScript : MonoBehaviour
     [SerializeField]
     AudioClip bgMusic;
 
+    [SerializeField]
+    AudioClip endSound;
+
     public AudioClip[] triggersounds;
+
+    public TextMeshProUGUI theEndText;
 
 
     // Start is called before the first frame update
@@ -38,6 +44,12 @@ public class SoundsScript : MonoBehaviour
             GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
             SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
             sp.PlaySound(triggersounds[ran], false, 0.1f);
+        } else if (other.tag == "Enemy")
+        {
+            GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
+            SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
+            sp.PlaySound(endSound, false, 0.1f);
+            theEndText.enabled = true;
         }
     }
 }
