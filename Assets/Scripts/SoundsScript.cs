@@ -17,6 +17,9 @@ public class SoundsScript : MonoBehaviour
     [SerializeField]
     AudioClip endSound;
 
+    [SerializeField]
+    AudioClip victorySound;
+
     public AudioClip[] triggersounds;
 
     public TextMeshProUGUI theEndText;
@@ -63,8 +66,12 @@ public class SoundsScript : MonoBehaviour
             canvasBg.enabled = true;
         } else if (other.tag == "Goal" && alive)
         {
+            alive = false;
             victoryText.enabled = true;
             canvasBg.enabled = true;
+            GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
+            SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
+            sp.PlaySound(victorySound, false, 1f);
         } 
     }
 }
