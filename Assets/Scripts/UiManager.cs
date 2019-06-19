@@ -35,7 +35,7 @@ public class UiManager : MonoBehaviour
 
     public void ChangeScene(int sceneID)
     {
-        
+        print("CLIKCED MAINMENU");
         if (sceneID == 0) {
             MouseLook ml = cam.GetComponent<MouseLook>();
             ml.SetCursorLock(false);
