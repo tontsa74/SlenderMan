@@ -13,16 +13,24 @@ public class UiManager : MonoBehaviour
 
     public Camera cam;
 
+    Button mainMenuButton;
+
     // Start is called before the first frame update
     void Start()
     {
         
+            mainMenuButton = gameObject.GetComponentInChildren<Button>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Cursor.lockState.Equals(CursorLockMode.None)) {
+            mainMenuButton.gameObject.SetActive(true);
+        } else  {
+            
+            mainMenuButton.gameObject.SetActive(false);
+        }
     }
 
     public void ChangeScene(int sceneID)
