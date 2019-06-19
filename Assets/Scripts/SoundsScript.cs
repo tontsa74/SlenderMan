@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 
 public class SoundsScript : MonoBehaviour
 {
@@ -18,6 +20,8 @@ public class SoundsScript : MonoBehaviour
     public AudioClip[] triggersounds;
 
     public TextMeshProUGUI theEndText;
+
+    public Button mainMenuButton;
 
     bool alive = true;
 

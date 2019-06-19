@@ -10018,6 +10018,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d6be0b1e85d97014d8cc99f19cc0aa20, type: 3}
   - {fileID: 8300000, guid: 5b2c5536e10d98e4a9b8a6a1723b527a, type: 3}
   theEndText: {fileID: 1539716661}
+  mainMenuButton: {fileID: 1553643675}
 --- !u!114 &1940915040
 MonoBehaviour:
   m_ObjectHideFlags: 0
