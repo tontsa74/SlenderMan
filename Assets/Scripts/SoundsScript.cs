@@ -53,7 +53,6 @@ public class SoundsScript : MonoBehaviour
             SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
             sp.PlaySound(endSound, false, 1f);
             theEndText.enabled = true;
-            Cursor.lockState = CursorLockMode.None;
             alive = false;
         }
     }
