@@ -21,7 +21,7 @@ public class SoundsScript : MonoBehaviour
 
     public TextMeshProUGUI theEndText;
 
-    public Button mainMenuButton;
+    public Image canvasBg;
 
     bool alive = true;
 
@@ -58,6 +58,7 @@ public class SoundsScript : MonoBehaviour
             sp.PlaySound(endSound, false, 1f);
             theEndText.enabled = true;
             alive = false;
+            canvasBg.enabled = true;
         }
     }
 }
