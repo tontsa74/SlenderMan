@@ -21,6 +21,8 @@ public class SoundsScript : MonoBehaviour
 
     public TextMeshProUGUI theEndText;
 
+    public TextMeshProUGUI victoryText;
+
     public Image canvasBg;
 
     bool alive = true;
@@ -59,6 +61,10 @@ public class SoundsScript : MonoBehaviour
             theEndText.enabled = true;
             alive = false;
             canvasBg.enabled = true;
-        }
+        } else if (other.tag == "Goal" && alive)
+        {
+            victoryText.enabled = true;
+            canvasBg.enabled = true;
+        } 
     }
 }
