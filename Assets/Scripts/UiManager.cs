@@ -5,15 +5,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
+using UnityStandardAssets.Characters.FirstPerson;
+
 
 public class UiManager : MonoBehaviour
 {
 
-    public TextMeshProUGUI p1Score;
-    public TextMeshProUGUI p2Score;
-
-    int p1Kills;
-    int p2Kills;
+    public Camera cam;
 
     // Start is called before the first frame update
     void Start()
@@ -29,30 +27,18 @@ public class UiManager : MonoBehaviour
 
     public void ChangeScene(int sceneID)
     {
+        
+        if (sceneID == 0) {
+            MouseLook ml = cam.GetComponent<MouseLook>();
+            ml.SetCursorLock(false);
+        } 
+
         SceneManager.LoadScene(sceneID);
+        
     }
 
     public void QuitGame()
     {
         Application.Quit();
-    }
-
-    public void HealthBarListener(Slider slider)
-    {
-        if(slider.value == 0)
-        {
-            if(slider.name =="HealthBarP1")
-            {
-                p2Kills++;
-                p2Score.SetText("Score " + p2Kills);
-            //    slider.value = 3;
-            }
-            else if (slider.name == "HealthBarP2")
-            {
-                p1Kills++;
-                p1Score.SetText("Score " + p1Kills);
-             //   slider.value = 3;
-            }
-        }
     }
 }
