@@ -19,6 +19,8 @@ public class SoundsScript : MonoBehaviour
 
     public TextMeshProUGUI theEndText;
 
+    bool alive = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,18 +42,19 @@ public class SoundsScript : MonoBehaviour
         if(other.tag == "SoundTrigger")
         {
             print("HITTED  ");
-            int ran = Random.Range(0, 6);
+            int ran = Random.Range(0, 5);
             GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
             SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
             sp.PlaySound(triggersounds[ran], false, 1f);
             Destroy(other.gameObject);
-        } else if (other.tag == "Enemy")
+        } else if (other.tag == "Enemy" && alive)
         {
             GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
             SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
             sp.PlaySound(endSound, false, 1f);
             theEndText.enabled = true;
             Cursor.lockState = CursorLockMode.None;
+            alive = false;
         }
     }
 }
