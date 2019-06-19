@@ -11,6 +11,9 @@ public class SoundsScript : MonoBehaviour
     [SerializeField]
     AudioClip bgMusic;
 
+    public AudioClip[] triggersounds;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +26,18 @@ public class SoundsScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        print("HIT " + other.tag);
+        if(other.tag == "SoundTrigger")
+        {
+            print("HITTED  ");
+            int ran = Random.Range(0, 6);
+            GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
+            SoundPlayerScript sp = soundPlayer.GetComponent<SoundPlayerScript>();
+            sp.PlaySound(triggersounds[ran], false, 0.1f);
+        }
     }
 }
