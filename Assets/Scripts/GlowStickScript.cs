@@ -15,6 +15,8 @@ public class GlowStickScript : MonoBehaviour
 
     bool throwed = false;
 
+    public Light stickLight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +45,8 @@ public class GlowStickScript : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= lifeSpan)
         {
-            Destroy(gameObject);
+
+            stickLight.color -= (Color.white / 3.0f) * Time.deltaTime;
         }
 
         //    rb.AddForce(direction * 100);
